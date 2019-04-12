@@ -27,9 +27,8 @@ public class UserOfBinarySearch {
             findMe = orderedList.get( i);
             foundAt = orderedList.indexOf( findMe);
             System.out.println( 
-                "Value " + findMe
-              + " was found at index " + foundAt
-              + ". That's correct, eh? " + (foundAt == i)
+                "Cost " + foundAt + System.lineSeparator()
+		+ "expected at most 4"
               );
         }
         System.out.println();

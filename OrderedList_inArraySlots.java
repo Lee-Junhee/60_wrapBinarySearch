@@ -10,7 +10,7 @@ public class OrderedList_inArraySlots
     implements OrderedList {
 
     private java.util.ArrayList<Integer> list_iAS;
-
+    private int cost;
 
     /**
       @return the index of any occurrence of
@@ -18,7 +18,8 @@ public class OrderedList_inArraySlots
               \findMe is absent from this list.
      */
     public int indexOf( Integer findMe) {
-        return indexOf_whileStyle( findMe);
+        cost = 0;
+	return indexOf_whileStyle( findMe);
         // return indexOf_recursive(
             // findMe, 0, list_iAS.size() -1);
     }
@@ -35,15 +36,16 @@ public class OrderedList_inArraySlots
             int pageToCheck = (low + hi) / 2;
             int comparison =
               findMe.compareTo( list_iAS.get( pageToCheck));
-            if( comparison == 0) return pageToCheck;
+            if( comparison == 0) break;
             else
                 if( comparison < 0)
                     // findMe's spot precedes pageToCheck
                     hi = pageToCheck -1;
                 // findMe's spot follows pageToCheck
                 else low = pageToCheck +1;
+	    cost++;
         }
-        return -3; // value differs from skeleton, just FYI
+        return cost; // value differs from skeleton, just FYI
     }
 
 
@@ -58,8 +60,9 @@ public class OrderedList_inArraySlots
                                  ) {
         // System.out.println( "debug low: " + low
                           // + "   hi: " + hi);
-        if( low > hi)  // detect base case
-            return -2;   // solution to base case
+        cost++;
+	if( low > hi)  // detect base case
+            return cost;   // solution to base case
               // value differs from while-style method, just FYI
         else{
             int pageToCheck = (low + hi) / 2;
@@ -68,7 +71,7 @@ public class OrderedList_inArraySlots
 
 
             if( comparison == 0)    // detect base case
-                return pageToCheck; // solution other base case
+                return cost; // solution other base case
             // recursive cases
             else
                 if( comparison < 0)
