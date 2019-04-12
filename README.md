@@ -18,6 +18,6 @@ as of 2019-04-10 04:48
 - Decision: Is the sub-list of size 0?
   - Yes (Base Case): Return -1, the element is not in the list
   - No (Recursive Case):
-    -(Combination Step) If the specified element equals the middle element of the list, return the index of the middle element.
-    -Else, (Leftover Processing)if the specified element is before the middle element of the list, (RA) find the specified element in the first half of the list.
-    -Else, (RA) find the specified element in the latter half of the list.
+    (Combination Step) If the specified element equals the middle element of the list, return the index of the middle element.
+    Else, (Leftover Processing)if the specified element is before the middle element of the list, (RA) find the specified element in the first half of the list.
+    Else, (RA) find the specified element in the latter half of the list.
